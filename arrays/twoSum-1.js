@@ -5,7 +5,6 @@ You can return the answer in any order.
 Input: nums = [2,7,11,15], target = 9
 Output: [0,1]
 Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
-
 */
 
 /**
@@ -76,3 +75,6 @@ var twoSumOptimized = function (nums, target) {
     We ask "I have X, what complement do I need to reach target?"
     This shifts from O(n²) search to O(1) lookup!
 */
+
+// Export functions for testing
+module.exports = { twoSumOptimized };
