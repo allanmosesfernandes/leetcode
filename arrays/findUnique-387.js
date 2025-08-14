@@ -15,6 +15,18 @@
 const A = [4, 10, 5, 4 ,2 ,10];
 
 // function findUnique(A) {
+//     let counter = {};
+//     for (const num of A) {
+//         if (counter[num] === undefined) {
+//             counter[num] = 1;
+//         } else {
+//             counter[num] = counter[num] + 1;
+//         }
+//     }
+// 
+//     
+// }
+// function findUnique(A) {
 //     const counter = new Map();
 //     // Keeps a count of every element in the array
 //     // 4 -> 2,10 -> 2,5 -> 1, 2 -> 1;
@@ -59,5 +71,39 @@ function findUniqueOnePass(A) {
 
     return -1;
 }
+
+function findUnique(A) {
+    const counts = {};
+
+    // Create a frequency counter
+    for (const num of A) {
+        counts[num] = (counts[num] || 0) + 1;
+    }
+
+    // Check and return first unique element
+    for (const num of A) {
+        if (counts[num] === 1) {
+            return num;
+        }
+    }
+
+    return -1;
+}
+
+function findUniqueInOne(A) {
+    // [1,2,3,3]
+    for (let i = 0; i < A.length; i++) {
+        let isUnique = true;
+        for (let j = 0; j < A.length; j++) {
+            if (i !== j && A[i] === A[j]) {
+                isUnique = false;
+                break;
+            }
+        }
+        if (isUnique) {
+            return A[i]
+        }
+    }
+}
 /* LC-387 First Unique Character in a string.*/
-console.log(findUniqueOnePass(A));
+// console.log(findUnique(A));
